@@ -17,14 +17,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/main_bottom_navigation"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemBackground="@color/purple_700"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
         app:menu="@menu/main_bottom_navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

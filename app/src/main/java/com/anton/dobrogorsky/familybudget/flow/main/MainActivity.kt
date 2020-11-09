@@ -3,7 +3,6 @@ package com.anton.dobrogorsky.familybudget.flow.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.anton.dobrogorsky.familybudget.R
 import com.anton.dobrogorsky.familybudget.flow.records.RecordsFragment
 import com.anton.dobrogorsky.familybudget.flow.report.ReportFragment
@@ -22,24 +21,24 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.title = menuItem.title
             when (menuItem.itemId) {
                 R.id.item_settings -> {
-                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
                     replaceFragment(SettingsFragment())
+                    true
                 }
                 R.id.item_records -> {
-                    Toast.makeText(this, "Records", Toast.LENGTH_SHORT).show()
                     replaceFragment(RecordsFragment())
+                    true
                 }
                 R.id.item_report -> {
-                    Toast.makeText(this, "Report", Toast.LENGTH_SHORT).show()
                     replaceFragment(ReportFragment())
+                    true
                 }
+                else -> false
             }
-            true
         }
     }
 
     private fun initial() {
-        replaceFragment(SettingsFragment())
-        supportActionBar?.title = "Settings"
+        replaceFragment(ReportFragment())
+        supportActionBar?.title = "Records"
     }
 }
