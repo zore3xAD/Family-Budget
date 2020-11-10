@@ -2,15 +2,15 @@ package com.anton.dobrogorsky.familybudget.flow.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.anton.dobrogorsky.familybudget.R
 import com.anton.dobrogorsky.familybudget.flow.records.RecordsFragment
 import com.anton.dobrogorsky.familybudget.flow.report.ReportFragment
 import com.anton.dobrogorsky.familybudget.flow.settings.SettingsFragment
-import com.anton.dobrogorsky.familybudget.flow.util.replaceFragment
+import com.anton.dobrogorsky.familybudget.util.replaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,6 +39,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initial() {
         replaceFragment(ReportFragment())
-        supportActionBar?.title = "Records"
+        supportActionBar?.setTitle(R.string.title_fragment_report)
     }
 }

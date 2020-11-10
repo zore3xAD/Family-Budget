@@ -1,4 +1,4 @@
-package com.anton.dobrogorsky.familybudget.flow.util
+package com.anton.dobrogorsky.familybudget.util
 
 import androidx.fragment.app.Fragment
 import com.anton.dobrogorsky.familybudget.R

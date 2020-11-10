@@ -6,21 +6,21 @@
         android:id="@+id/item_records"
         android:enabled="true"
         android:icon="@drawable/ic_records_white"
-        android:title="Records"
+        android:title="@string/title_fragment_records"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/item_report"
         android:enabled="true"
         android:icon="@drawable/ic_report_white"
-        android:title="Report"
+        android:title="@string/title_fragment_report"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/item_settings"
         android:enabled="true"
         android:icon="@drawable/ic_settings_white"
-        android:title="Settings"
+        android:title="@string/title_fragment_settings"
         app:showAsAction="ifRoom" />
 
 </menu>
