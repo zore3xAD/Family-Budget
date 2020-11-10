@@ -7,14 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.anton.dobrogorsky.familybudget.R
+import com.anton.dobrogorsky.familybudget.databinding.RecordsFragmentBinding
+import com.anton.dobrogorsky.familybudget.flow.BaseViewBindingFragment
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class RecordsFragment : Fragment() {
+class RecordsFragment : BaseViewBindingFragment<RecordsFragmentBinding>() {
 
     companion object {
         fun newInstance() = RecordsFragment()
     }
 
-    private lateinit var viewModel: RecordsViewModel
+    private val viewModel: RecordsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +28,13 @@ class RecordsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RecordsViewModel::class.java)
-        // TODO: Use the ViewModel
+    }
+
+    override fun inflateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): RecordsFragmentBinding {
+        return RecordsFragmentBinding.inflate(inflater, container, false)
     }
 
 }

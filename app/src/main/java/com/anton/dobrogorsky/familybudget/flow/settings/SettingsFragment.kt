@@ -1,37 +1,24 @@
 package com.anton.dobrogorsky.familybudget.flow.settings
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.anton.dobrogorsky.familybudget.databinding.SettingsFragmentBinding
+import com.anton.dobrogorsky.familybudget.flow.BaseViewBindingFragment
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : BaseViewBindingFragment<SettingsFragmentBinding>() {
 
     companion object {
         fun newInstance() = SettingsFragment()
     }
 
-    private var _binding: SettingsFragmentBinding? = null
-
-    private val binding get() = _binding!!
-
-    private lateinit var viewModel: SettingsViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = SettingsFragmentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    private val viewModel: SettingsViewModel by viewModel()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
         viewModel.binding = binding
+
         viewModel.personalInfo.observe(this, { personalInfo ->
             personalInfo?.let { personal ->
                 binding.editTextName.editText?.setText(personal.name)
@@ -60,6 +47,13 @@ class SettingsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun inflateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): SettingsFragmentBinding {
+        return SettingsFragmentBinding.inflate(inflater, container, false)
     }
 
 }

@@ -21,15 +21,15 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.title = menuItem.title
             when (menuItem.itemId) {
                 R.id.item_settings -> {
-                    replaceFragment(SettingsFragment())
+                    replaceFragment(SettingsFragment.newInstance())
                     true
                 }
                 R.id.item_records -> {
-                    replaceFragment(RecordsFragment())
+                    replaceFragment(RecordsFragment.newInstance())
                     true
                 }
                 R.id.item_report -> {
-                    replaceFragment(ReportFragment())
+                    replaceFragment(ReportFragment.newInstance())
                     true
                 }
                 else -> false
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initial() {
-        replaceFragment(ReportFragment())
+        replaceFragment(ReportFragment.newInstance())
         supportActionBar?.setTitle(R.string.title_fragment_report)
     }
 }

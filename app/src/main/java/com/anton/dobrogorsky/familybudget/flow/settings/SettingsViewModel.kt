@@ -9,7 +9,7 @@ import com.anton.dobrogorsky.familybudget.model.entity.Personal
 import com.anton.dobrogorsky.familybudget.repository.PersonalRepository
 import kotlinx.coroutines.launch
 
-class SettingsViewModel(private val userRepository: PersonalRepository = PersonalRepository(App.appDatabase.personalDao)) : ViewModel() {
+class SettingsViewModel(val userRepository: PersonalRepository) : ViewModel() {
 
     var binding: SettingsFragmentBinding? = null
 
