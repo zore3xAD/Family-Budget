@@ -19,17 +19,6 @@ class ReportFragment : BaseViewBindingFragment<ReportFragmentBinding>() {
 
     private val viewModel: ReportViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.report_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        // TODO: Use the ViewModel
-    }
 
     override fun inflateView(
         inflater: LayoutInflater,

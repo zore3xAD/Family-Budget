@@ -21,10 +21,6 @@ abstract class BaseViewBindingFragment<VB: ViewBinding>: Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     abstract fun inflateView(inflater: LayoutInflater, container: ViewGroup?): VB
 
 }

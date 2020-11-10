@@ -19,17 +19,6 @@ class RecordsFragment : BaseViewBindingFragment<RecordsFragmentBinding>() {
 
     private val viewModel: RecordsViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.records_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun inflateView(
         inflater: LayoutInflater,
         container: ViewGroup?

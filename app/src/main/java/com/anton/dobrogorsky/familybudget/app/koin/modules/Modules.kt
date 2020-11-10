@@ -2,10 +2,12 @@ package com.anton.dobrogorsky.familybudget.app.koin.modules
 
 import android.app.Application
 import androidx.room.Room
-import com.anton.dobrogorsky.familybudget.app.AppDataBase
+import com.anton.dobrogorsky.familybudget.app.database.AppDataBase
+import com.anton.dobrogorsky.familybudget.app.database.MIGRATION_1_2
 import com.anton.dobrogorsky.familybudget.flow.records.RecordsViewModel
 import com.anton.dobrogorsky.familybudget.flow.report.ReportViewModel
 import com.anton.dobrogorsky.familybudget.flow.settings.SettingsViewModel
+import com.anton.dobrogorsky.familybudget.model.dao.MoneyTransactionDao
 import com.anton.dobrogorsky.familybudget.model.dao.PersonalDao
 import com.anton.dobrogorsky.familybudget.repository.PersonalRepository
 import org.koin.android.ext.koin.androidApplication
@@ -20,13 +22,14 @@ object Modules {
     }
 
     val repositoryModule = module {
-        single { PersonalRepository(get())}
+        single { PersonalRepository(get()) }
     }
 
     val databaseModule = module {
         fun provideDatabase(application: Application): AppDataBase {
             return Room.databaseBuilder(application, AppDataBase::class.java, "db_family_budget")
                 .fallbackToDestructiveMigration()
+                .addMigrations(MIGRATION_1_2)
                 .build()
         }
 
@@ -34,7 +37,12 @@ object Modules {
             return database.personalDao
         }
 
+        fun provideMoneyTransactionDao(dataBase: AppDataBase): MoneyTransactionDao {
+            return dataBase.moneyTransactionDao
+        }
+
         single { provideDatabase(androidApplication()) }
         single { providePersonalDao(get()) }
+        single { provideMoneyTransactionDao(get()) }
     }
 }
